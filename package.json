@@ -2,6 +2,7 @@
   "name": "paintonlinetest",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "dependencies": {
     "agent-base": "^6.0.2",
     "ansi-regex": "^5.0.1",
