@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>paint online</title>
+    <link href="output.css" rel="stylesheet">
+</head>
+<body class="bg-violet-100">
+    <div id="content" class="flex flex-row h-[100vh] w-[100vw]">
+        <div id="left" class="w-[20vw] h-[100vh] flex flex-col justify-between">
+            <div id="toolbar" class="p-[8%] flex flex-col h-[80%] w-[100%]">
+                <div id="icon-container" class="flex justify-start flex-wrap">
+                    <button id="brush" class="icon active" onclick="selectTool('brush')">
+                        <img src="images/brush.png">
+                    </button>
+                    <button id="fill" class="icon" onclick="selectTool('fill')">
+                        <img src="images/fill.png">
+                    </button>
+                    <button id="eraser" class="icon" onclick="selectTool('eraser')">
+                        <img src="images/eraser.png">
+                    </button>
+                    <button id="eyedropper" class="icon" onclick="selectTool('eyedropper')">
+                        <img src="images/eyedropper.png">
+                    </button>
+                    <button id="clear" class="icon bg-white border-[5px] border-[#e1dcdcca] active:bg-amber-100">
+                        <img src="images/clear.png">
+                    </button>
+                    <button id="export" class="icon bg-white border-[5px] border-[#e1dcdcca] active:bg-amber-100">
+                        <img src="images/export.png">
+                    </button>
+                </div>
+                <div id="edit-container" class="flex justify-between items-center m-[5%] mt-[30%]">
+                    <input id="size" class="ml-[2%] w-[50%] align-top bg-gray-300 h-[30%] rounded-lg appearance-none cursor-pointer" type="range" value="2" min="2" max="100">
+                    <div class="relative">
+                        <label id="color-label" for="color" class="border-[0.4vw] border-[#e1dcdcdd] rounded-md h-[2.4vw] bg-black w-[3vw] cursor-pointer flex"></label>
+                        <input id="color" class="absolute inset-0 w-full h-auto opacity-0 cursor-pointer" type="color">
+                    </div>
+                </div>
+            </div>
+            <div class="p-[10%] h-[20%] flex items-end">
+                <button id="switch-server" class="bg-white p-[5%] w-full rounded-lg border-[5px] border-[#e1dcdcca] hover:bg-[rgb(255,252,250)] hover:scale-95 active:scale-90 transition-transform duration-200 ease-in-out active:bg-amber-100">
+                    Go to Local Canvas
+                </button>
+            </div>
+        </div>
+        <div id="right" class="border-l-5 h-screen w-[80vw]">
+            <canvas id="canvas" height="1000" width="1500" class="h-full w-full border-[10px] border-[#e1dcdcca] absolute"></canvas>
+            <canvas id="server-canvas" height="1000" width="1500" class="h-full w-full border-[10px] border-[#e1dcdcca] absolute"></canvas>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
